@@ -2,8 +2,8 @@
 Renders Root component on the DOM.
 =========================================*/
 
-import React, { Component } from 'react';
-import ReactDom from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import App from './components/app';
 
-ReactDom.render(<App/>, document.querySelector('.container'));
+ReactDOM.render(<App />, document.getElementById('root'));

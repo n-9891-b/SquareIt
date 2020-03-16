@@ -8,13 +8,23 @@ through _renderRectangle function called in
 RectangleInput form.
 =========================================*/
 
-import React, { Component } from 'react';
-import ReactDom from 'react-dom';
+import React, { Component } from 'react'
 import RectangleForm from './rectangleInputForm';
 import SVG from './svg';
+import FeedBack from './FeedBack';
 
-class App extends Component {
-  constructor(props) {
+import '../styles/main.css';
+
+interface State {
+  rectangleWidth: string;
+  rectangleHeight: string;
+  rectangleColor: string;
+}
+
+export interface Props {}
+
+class App extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       rectangleWidth: '',
@@ -23,7 +33,7 @@ class App extends Component {
     };
   }
 
-  _renderRectangle(width, height, color) {
+  _renderRectangle(width: string, height: string, color: string) {
     this.setState({rectangleWidth: width});
     this.setState({rectangleHeight: height});
     this.setState({rectangleColor: color});
@@ -44,6 +54,9 @@ class App extends Component {
               rectangleHeight={this.state.rectangleHeight}
               rectangleColor={this.state.rectangleColor}/>
           </section>
+          <div>
+            <FeedBack />
+          </div>
           <footer>
             <p className="note">
               *Note: The rectangle will render at random places on the svg canvas.
